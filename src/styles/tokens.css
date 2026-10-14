@@ -1,0 +1,79 @@
+/* =============================================================================
+   TOKENS DE DISEÑO: "TODOS Somos Montería - ¡Vivamos Bonito!"
+   =============================================================================
+   Paleta cromática e institucional homologada directamente de la plataforma
+   oficial de la Alcaldía de Montería (https://larondavive-front.vercel.app/).
+   
+   Colores del Sistema Cívico de Montería:
+   - Azul Montería Oficial: #2563eb (Principal en botones y acciones destacadas)
+   - Azul Montería Oscuro:  #1d4ed8 (Estados hover y sombras táctiles)
+   - Azul Montería Claro:   #3b82f6 (Acentos y bordes activos)
+   - Rojo Institucional:    #dc2626 (Emblema de Montería y alertas de energía)
+   - Rojo Oscuro / Carmesí: #b91c1c (Bordes y contraste profundo)
+   - Rojo Claro:            #ef4444 (Micro-resplandor y dinamismo)
+   - Amarillo Bandera:      #f59e0b / #fbbf24 (Estrella cívica oficial)
+   - Blanco Superficie:     #ffffff (Pureza visual, tarjetas y limpieza)
+   - Fondo Degradado:       linear-gradient(180deg, #f1f5f9, #f8fafc 50%, #eff6ff)
+   - Texto Principal:       #0f172a (Negro pizarra de máxima legibilidad)
+   - Texto Secundario:      #475569 y #64748b
+   ============================================================================= */
+
+:root {
+  /* --- Paleta Cromática Oficial Alcaldía de Montería (La Ronda Vive) --- */
+  --monteria-blue: #2563eb;               /* Azul principal de los botones de acción */
+  --monteria-blue-dark: #1d4ed8;          /* Azul profundo para hover y foco */
+  --monteria-blue-light: #3b82f6;         /* Azul vivo para bordes activos y acentos */
+  --monteria-blue-glow: rgba(37, 99, 235, 0.25); /* Halo de luz azul institucional */
+  --monteria-blue-soft: #eff6ff;          /* Fondo azul tenue para chips y badges */
+
+  --monteria-red: #dc2626;                /* Rojo bandera de Montería */
+  --monteria-red-dark: #b91c1c;           /* Rojo oscuro para profundidad */
+  --monteria-red-light: #ef4444;          /* Rojo vibrante para resaltes */
+  --monteria-red-glow: rgba(220, 38, 38, 0.25); /* Halo de luz roja */
+  --monteria-red-soft: #fef2f2;           /* Fondo suave para tarjetas y alertas */
+
+  --monteria-white: #ffffff;              /* Blanco puro de contraste */
+  --star-yellow: #f59e0b;                 /* Estrella dorada central de la bandera */
+  --star-yellow-light: #fef3c7;           /* Fondo dorado tenue */
+
+  /* --- Fondos y Superficies Pulcras (La Ronda Vive) --- */
+  --bg-main: #f8fafc;
+  --bg-gradient: linear-gradient(180deg, #f1f5f9, #f8fafc 50%, #eff6ff);
+  --surface-white: #ffffff;
+  --surface-glass: rgba(255, 255, 255, 0.92);
+  --surface-glass-strong: rgba(255, 255, 255, 0.97);
+
+  /* --- Textos Institucionales de Alta Jerarquía y Legibilidad --- */
+  --text-main: #0f172a;                   /* Color primario de títulos y cuerpo */
+  --text-muted: #475569;                  /* Subtítulos y descripciones informativas */
+  --text-subtle: #64748b;                 /* Etiquetas, fechas y detalles pequeños */
+
+  /* --- Bordes y Separadores Estilizados --- */
+  --border-light: rgba(15, 23, 42, 0.1);  /* Bordes suaves y limpios */
+  --border-red: rgba(220, 38, 38, 0.25);  /* Bordes con tinte cívico rojo */
+  --border-blue: rgba(37, 99, 235, 0.25); /* Bordes con tinte azul institucional */
+
+  /* --- Sombras de Elevación Oficiales (La Ronda Vive) --- */
+  --shadow-sm: 0 4px 12px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 12px 32px rgba(37, 99, 235, 0.08);
+  --shadow-lg: 0 20px 48px rgba(37, 99, 235, 0.14);
+  --shadow-holo-card: 0 20px 40px -10px rgba(15, 23, 42, 0.35);
+
+  /* --- Tipografías del Ecosistema Institucional --- */
+  --font-serif: Georgia, 'Times New Roman', serif; /* Títulos con distinción institucional */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; /* Títulos bold pop */
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; /* Lectura móvil */
+  --font-script: 'Caveat', cursive; /* Toque humano de "¡Vivamos bonito!" */
+
+  /* --- Radios de Borde Ergonómicos para Móviles --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* --- Transiciones Físicas Suaves (Framer Motion y CSS) --- */
+  --transition-fast: 0.16s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

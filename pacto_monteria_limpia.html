@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacto por una Montería Más Limpia | Compromiso Global</title>
+  <style>
+    :root {
+      --primary: #065f46;
+      --primary-light: #10b981;
+      --primary-dark: #022c22;
+      --sinu-blue: #0284c7;
+      --sinu-light: #38bdf8;
+      --accent: #f59e0b;
+      --bg: #091e16;
+      --surface: #0f2d22;
+      --surface-card: #153e30;
+      --border: #1f5341;
+      --text: #f0fdf4;
+      --text-muted: #a7f3d0;
+      --text-dim: #6ee7b7;
+      --gold: #fbbf24;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Top Navigation */
+    header {
+      background: rgba(9, 30, 22, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sinu-blue), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title span {
+      color: var(--primary-light);
+    }
+
+    .header-cta {
+      background: linear-gradient(135deg, var(--primary-light), var(--sinu-blue));
+      color: #022c22;
+      font-weight: 700;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--primary-light);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 80%, var(--sinu-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Live Counter Bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary-light);
+    }
+
+    .stat-number {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--primary-light);
+      margin-bottom: 0.2rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* Layout Grid */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .layout-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+    }
+
+    /* Card Panels */
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .panel-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .panel-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .panel-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* Globe & Map Canvas Container */
+    .visual-globe-box {
+      width: 100%;
+      height: 380px;
+      background: radial-gradient(circle at center, #0e372a 0%, #061912 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    #worldCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .map-overlay-info {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(9, 30, 22, 0.85);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      pointer-events: none;
+    }
+
+    .pulsing-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary-light);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.4); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    /* Manifesto Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .pillar-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      transition: border-color 0.2s;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--primary-light);
+    }
+
+    .pillar-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .pillar-content h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .pillar-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #092017;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Commitment Checkbox Chips */
+    .commitments-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+    }
+
+    .chip-check {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: #0b261c;
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .chip-check:hover {
+      background: #0f3426;
+      border-color: var(--primary-light);
+    }
+
+    .chip-check input[type="checkbox"] {
+      accent-color: var(--primary-light);
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .chip-check.active {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: var(--primary-light);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* Signature Pad */
+    .signature-area {
+      margin-top: 0.4rem;
+      background: #092017;
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      position: relative;
+      touch-action: none;
+    }
+
+    #sigCanvas {
+      width: 100%;
+      height: 120px;
+      display: block;
+      cursor: crosshair;
+    }
+
+    .sig-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.6rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.15);
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .sig-hint {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+    }
+
+    .btn-clear {
+      background: transparent;
+      border: none;
+      color: #f87171;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .btn-clear:hover {
+      text-decoration: underline;
+    }
+
+    /* Submit Button */
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
+      color: #022c22;
+      border: none;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Live Feed / Muro de Firmas */
+    .signatures-feed {
+      margin-top: 2rem;
+    }
+
+    .feed-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .feed-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 0.3rem;
+    }
+
+    .feed-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .feed-list::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    .feed-item {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feed-user {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .feed-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--sinu-blue));
+      color: #022c22;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .feed-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .feed-loc {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .feed-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--primary-light);
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    /* Modal Certificate */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(4, 15, 10, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .cert-modal {
+      background: #0f2d22;
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      max-width: 620px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(251, 191, 36, 0.2);
+      animation: modalPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .cert-diploma {
+      background: radial-gradient(circle at center, #134031 0%, #0a251b 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      margin: 1.2rem 0;
+      position: relative;
+    }
+
+    .cert-seal {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #d97706);
+      color: #022c22;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+      box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    }
+
+    .cert-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .cert-for {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .cert-signer-name {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0.6rem 0;
+      font-style: italic;
+    }
+
+    .cert-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .cert-meta {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .cert-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-cert-action {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-cert-action:hover {
+      background: var(--primary-light);
+      color: #022c22;
+    }
+
+    .btn-cert-action.primary {
+      background: linear-gradient(135deg, var(--gold), #d97706);
+      color: #022c22;
+      border: none;
+      font-weight: 700;
+    }
+
+    .btn-cert-action.primary:hover {
+      box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      background: #061711;
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    .sinu-wave {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #0284c7, #10b981);
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <a href="#" class="brand">
+      <div class="brand-logo">🌿</div>
+      <div class="brand-title">Montería<span>Limpia</span></div>
+    </a>
+    <a href="#firmar" class="header-cta">
+      <span>✍️</span> Firmar el Pacto
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">Compromiso Ciudadano Global • 2026</div>
+    <h1>Por una Montería más Limpia y Sostenible</h1>
+    <p>
+      El Río Sinú nos conecta y nuestra ciudad nos enorgullece. Desde cualquier barrio de Montería o rincón del planeta donde lata un corazón monteriano, únete y enciende tu firma visual por una ciudad impecable.
+    </p>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-number" id="counterSignatures">1,482</div>
+      <div class="stat-label">Firmas Registradas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="counterCities">47</div>
+      <div class="stat-label">Ciudades en el Mundo</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" id="counterPledges">4,446</div>
+      <div class="stat-label">Acciones Comprometidas</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Amor por el Sinú</div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div class="layout-grid">
+      
+      <!-- Left Column: Visual Map / World Canvas & Pillars -->
+      <div>
+        <!-- Globe / Visual Map Box -->
+        <div class="panel" style="padding-bottom: 1.5rem; margin-bottom: 2rem;">
+          <div class="panel-header">
+            <h2 class="panel-title">
+              <span>🌍</span> Red Visual del Compromiso en el Mundo
+            </h2>
+            <p class="panel-subtitle">
+              Puntos de luz activos que representan a monterianos y aliados sumándose al pacto en tiempo real.
+            </p>
+          </div>
+
+          <div class="visual-globe-box">
+            <canvas id="worldCanvas"></canvas>
+            <div class="map-overlay-info">
+              <div class="pulsing-dot"></div>
+              <span>Conexiones activas: Montería ⇄ El Mundo</span>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-dim); text-align: center;">
+            Haz clic o pasa el cursor sobre los nodos iluminados para ver quiénes están firmando.
+          </div>
+        </div>
+
+        <!-- Manifesto Pillars -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">
+              <span>📜</span> El Decálogo: Nuestro Compromiso
+            </h2>
+            <p class="panel-subtitle">
+              Los pilares esenciales para transformar la cultura ciudadana de Montería.
+            </p>
+          </div>
+
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon">💧</div>
+              <div class="pillar-content">
+                <h4>Protección Sagrada del Río Sinú</h4>
+                <p>Cero residuos en sus orillas, rondas y playas. Conservar la Ronda del Sinú como el santuario natural y turístico más querido.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">⏰</div>
+              <div class="pillar-content">
+                <h4>Disciplina en Horarios de Recolección</h4>
+                <p>Sacar los residuos solo en los días y horarios fijados. Erradicar los botaderos a cielo abierto en esquinas y lotes.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">♻️</div>
+              <div class="pillar-content">
+                <h4>Separación en la Fuente y Reciclaje</h4>
+                <p>Dignificar y apoyar la labor de los recicladores de oficio entregando el material limpio, seco y separado.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">🚫</div>
+              <div class="pillar-content">
+                <h4>Canales y Drenajes Sin Basuras</h4>
+                <p>No arrojar plásticos ni escombros a los canales colectores de aguas lluvias para evitar taponamientos e inundaciones.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon">🌎</div>
+              <div class="pillar-content">
+                <h4>Embajadores de la Cultura Sinú</h4>
+                <p>Seas residente local o diáspora en el exterior, promover con orgullo las buenas prácticas y el respeto ambiental.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Form & Live Signatures Feed -->
+      <div id="firmar">
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">
+              <span>✍️</span> Firma Tu Compromiso Virtual
+            </h2>
+            <p class="panel-subtitle">
+              Suma tu nombre y firma. Recibirás tu certificado oficial de <em>Guardián de Montería Limpia</em>.
+            </p>
+          </div>
+
+          <form id="pledgeForm">
+            <!-- Name -->
+            <div class="form-group">
+              <label class="form-label" for="signerName">Nombre y Apellidos *</label>
+              <input type="text" id="signerName" class="form-control" placeholder="Ej. Valentina Morales Gómez" required>
+            </div>
+
+            <!-- Location Details -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="userCategory">¿Desde dónde firmas? *</label>
+                <select id="userCategory" class="form-control" onchange="toggleLocationFields()" required>
+                  <option value="monteria">Vivo en Montería</option>
+                  <option value="colombia">Monteriano(a) en Colombia</option>
+                  <option value="diaspora">En el Exterior / Amigo de Montería</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="sectorGroup">
+                <label class="form-label" for="userSector" id="sectorLabel">Barrio o Comuna *</label>
+                <input type="text" id="userSector" class="form-control" placeholder="Ej. La Castellana, Cantaclaro, Margen Izq." required>
+              </div>
+            </div>
+
+            <!-- Commitments Checkboxes -->
+            <div class="form-group">
+              <label class="form-label">Mis acciones de compromiso (Selecciona tus promesas):</label>
+              <div class="commitments-selector">
+                <label class="chip-check active">
+                  <input type="checkbox" checked value="Cuidar la Ronda y el Río Sinú">
+                  <span>🌊 No botar plásticos ni basura en la Ronda y el Río Sinú</span>
+                </label>
+                <label class="chip-check active">
+                  <input type="checkbox" checked value="Respetar horarios de aseo">
+                  <span>🕒 Cumplir con los horarios de recolección de basura</span>
+                </label>
+                <label class="chip-check active">
+                  <input type="checkbox" checked value="Separar y reciclar">
+                  <span>♻️ Separar residuos reciclables en casa y trabajo</span>
+                </label>
+                <label class="chip-check">
+                  <input type="checkbox" value="Canales limpios">
+                  <span>🚫 Mantener limpios canales y desagües de mi sector</span>
+                </label>
+                <label class="chip-check">
+                  <input type="checkbox" value="Promover cultura ciudadana">
+                  <span>🗣️ Inspirar a vecinos y familiares a mantener la ciudad limpia</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Signature Canvas -->
+            <div class="form-group">
+              <label class="form-label">Traza tu firma digital en este recuadro *</label>
+              <div class="signature-area">
+                <canvas id="sigCanvas"></canvas>
+                <div class="sig-actions">
+                  <span class="sig-hint">Dibuja tu firma con el dedo o mouse</span>
+                  <button type="button" class="btn-clear" onclick="clearSignature()">Borrar y reintentar</button>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <span>🌟</span> Firmar y Encender mi Compromiso
+            </button>
+          </form>
+
+          <!-- Live Feed of Recent Signatures -->
+          <div class="signatures-feed">
+            <div class="feed-header">
+              <div class="feed-title">Últimas firmas registradas</div>
+              <span style="font-size: 0.75rem; color: var(--primary-light);">● Actualizado</span>
+            </div>
+            <div class="feed-list" id="feedList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal Certificate -->
+  <div class="modal-overlay" id="certModal">
+    <div class="cert-modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      
+      <div class="cert-seal">🏅</div>
+      <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 0.2rem;">¡Felicitaciones!</h3>
+      <p style="color: var(--text-dim); font-size: 0.9rem;">Tu compromiso ha quedado oficialmente sellado e iluminado en la red mundial.</p>
+
+      <div class="cert-diploma" id="certDiploma">
+        <div class="cert-title">Certificado de Compromiso</div>
+        <div class="cert-for">Por una Montería Más Limpia y Verde</div>
+        <div class="cert-signer-name" id="certSignerName">Juan Camilo Paternina</div>
+        <p class="cert-text">
+          Reconocido(a) como <strong>Guardián Oficial de Montería</strong> por comprometerse activamente a proteger el Río Sinú, mantener limpios los espacios públicos y fomentar el orgullo cívico monteriano.
+        </p>
+        
+        <div style="margin: 1.2rem auto 0; max-width: 160px; height: 50px; border-bottom: 1px solid var(--gold); display: flex; align-items: flex-end; justify-content: center;">
+          <img id="certSigImg" src="" alt="Firma" style="max-height: 45px; max-width: 140px; display: none; filter: drop-shadow(0 0 4px #fbbf24);">
+          <span id="certSigFallback" style="font-style: italic; color: var(--gold); font-size: 0.9rem;">Firma Registrada</span>
+        </div>
+
+        <div class="cert-meta">
+          <div><strong>Ubicación:</strong> <span id="certLocation">Montería, Comuna 4</span></div>
+          <div><strong>Fecha:</strong> <span id="certDate">13 Octubre 2026</span></div>
+          <div><strong>Folio:</strong> <span id="certFolio">#MON-2026-1483</span></div>
+        </div>
+      </div>
+
+      <div class="cert-actions">
+        <button class="btn-cert-action primary" onclick="downloadCertificate()">
+          <span>📥</span> Descargar Certificado
+        </button>
+        <button class="btn-cert-action" onclick="sharePledge()">
+          <span>📢</span> Compartir en Redes
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="sinu-wave"></div>
+    <p>
+      Iniciativa Cívica Ciudadana: <strong>Pacto por una Montería Más Limpia y Sostenible</strong>.
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.78rem; opacity: 0.8;">
+      Inspirada en el amor por el Río Sinú, la Perla del Sinú y la vocación de ciudad verde y amable para el mundo.
+    </p>
+  </footer>
+
+  <script>
+    // Initial Seed Signatures
+    let signatures = [
+      { name: "Dr. Carlos Burgos", loc: "Montería (El Recreo)", time: "Hace 5 min", avatar: "CB", commitments: 4, coords: { x: 0.51, y: 0.52 } },
+      { name: "Mariana Petro", loc: "Montería (Cantaclaro)", time: "Hace 12 min", avatar: "MP", commitments: 5, coords: { x: 0.53, y: 0.54 } },
+      { name: "Andrés Felipe Ruiz", loc: "Bogotá D.C. (Monteriano)", time: "Hace 20 min", avatar: "AR", commitments: 3, coords: { x: 0.52, y: 0.62 } },
+      { name: "Lucía Durango Ramos", loc: "Montería (La Castellana)", time: "Hace 35 min", avatar: "LD", commitments: 4, coords: { x: 0.50, y: 0.49 } },
+      { name: "Gustavo Negrete", loc: "Miami, EE. UU. (Diáspora)", time: "Hace 1 hora", avatar: "GN", commitments: 3, coords: { x: 0.45, y: 0.32 } },
+      { name: "Elena Gómez Hoyos", loc: "Montería (Margen Izquierda)", time: "Hace 1 hora", avatar: "EG", commitments: 5, coords: { x: 0.48, y: 0.53 } },
+      { name: "Mateo Villadiego", loc: "Madrid, España (Diáspora)", time: "Hace 2 horas", avatar: "MV", commitments: 4, coords: { x: 0.78, y: 0.28 } },
+      { name: "Sofía Correa Benítez", loc: "Medellín (Monteriana)", time: "Hace 2 horas", avatar: "SC", commitments: 3, coords: { x: 0.50, y: 0.57 } },
+      { name: "Javier Galeano", loc: "Montería (Mogambo)", time: "Hace 3 horas", avatar: "JG", commitments: 4, coords: { x: 0.52, y: 0.56 } },
+      { name: "Valeria Buelvas", loc: "Santiago, Chile (Diáspora)", time: "Hace 4 horas", avatar: "VB", commitments: 3, coords: { x: 0.49, y: 0.88 } }
+    ];
+
+    let totalSignatures = 1482;
+    let totalPledges = 4446;
+    let totalCities = 47;
+
+    // Signature Pad Canvas
+    const sigCanvas = document.getElementById("sigCanvas");
+    const sigCtx = sigCanvas.getContext("2d");
+    let isDrawing = false;
+    let hasSigned = false;
+
+    function resizeSigCanvas() {
+      const rect = sigCanvas.getBoundingClientRect();
+      sigCanvas.width = rect.width;
+      sigCanvas.height = 120;
+      sigCtx.strokeStyle = "#38bdf8";
+      sigCtx.lineWidth = 2.5;
+      sigCtx.lineCap = "round";
+      sigCtx.lineJoin = "round";
+    }
+
+    function startDraw(e) {
+      isDrawing = true;
+      hasSigned = true;
+      const rect = sigCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      sigCtx.beginPath();
+      sigCtx.moveTo(clientX - rect.left, clientY - rect.top);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      e.preventDefault();
+      const rect = sigCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      sigCtx.lineTo(clientX - rect.left, clientY - rect.top);
+      sigCtx.stroke();
+    }
+
+    function stopDraw() {
+      isDrawing = false;
+    }
+
+    function clearSignature() {
+      sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+      hasSigned = false;
+    }
+
+    sigCanvas.addEventListener("mousedown", startDraw);
+    sigCanvas.addEventListener("mousemove", draw);
+    window.addEventListener("mouseup", stopDraw);
+
+    sigCanvas.addEventListener("touchstart", startDraw, { passive: false });
+    sigCanvas.addEventListener("touchmove", draw, { passive: false });
+    window.addEventListener("touchend", stopDraw);
+
+    // Toggle location inputs
+    function toggleLocationFields() {
+      const cat = document.getElementById("userCategory").value;
+      const label = document.getElementById("sectorLabel");
+      const input = document.getElementById("userSector");
+
+      if (cat === "monteria") {
+        label.textContent = "Barrio o Comuna en Montería *";
+        input.placeholder = "Ej. La Granja, Centro, La Pradera";
+      } else if (cat === "colombia") {
+        label.textContent = "Ciudad en Colombia *";
+        input.placeholder = "Ej. Bogotá, Medellín, Barranquilla";
+      } else {
+        label.textContent = "Ciudad y País en el Exterior *";
+        input.placeholder = "Ej. Miami (EE.UU.), Madrid (España)";
+      }
+    }
+
+    // Toggle Checkbox Chip Styles
+    document.querySelectorAll(".chip-check input").forEach(input => {
+      input.addEventListener("change", function() {
+        if (this.checked) {
+          this.parentElement.classList.add("active");
+        } else {
+          this.parentElement.classList.remove("active");
+        }
+      });
+    });
+
+    // Feed Render
+    function renderFeed() {
+      const feed = document.getElementById("feedList");
+      feed.innerHTML = signatures.map(s => `
+        <div class="feed-item">
+          <div class="feed-user">
+            <div class="feed-avatar">${s.avatar}</div>
+            <div>
+              <div class="feed-name">${s.name}</div>
+              <div class="feed-loc">${s.loc} • ${s.time}</div>
+            </div>
+          </div>
+          <div class="feed-badge">${s.commitments} compromisos</div>
+        </div>
+      `).join("");
+    }
+
+    // Interactive World Map & Network Visual Canvas
+    const mapCanvas = document.getElementById("worldCanvas");
+    const mapCtx = mapCanvas.getContext("2d");
+    let animationFrameId;
+
+    // Stylized World Continents Points for Canvas
+    const continentNodes = [
+      // Monteria Center (Hub)
+      { name: "Montería", x: 0.50, y: 0.52, hub: true, pulse: 0 },
+      // Americas
+      { name: "Norteamérica", x: 0.28, y: 0.30 },
+      { name: "Nueva York", x: 0.44, y: 0.32 },
+      { name: "Miami", x: 0.42, y: 0.39 },
+      { name: "Bogotá", x: 0.51, y: 0.58 },
+      { name: "Medellín", x: 0.49, y: 0.55 },
+      { name: "Lima", x: 0.47, y: 0.68 },
+      { name: "Santiago", x: 0.48, y: 0.84 },
+      { name: "Buenos Aires", x: 0.54, y: 0.82 },
+      { name: "Sao Paulo", x: 0.60, y: 0.72 },
+      // Europe
+      { name: "Madrid", x: 0.75, y: 0.32 },
+      { name: "París", x: 0.78, y: 0.27 },
+      { name: "Londres", x: 0.76, y: 0.24 },
+      // Other
+      { name: "México D.F.", x: 0.36, y: 0.44 },
+      { name: "Cartagena", x: 0.50, y: 0.50 }
+    ];
+
+    let dynamicNodes = [
+      { name: "Montería Centro", x: 0.50, y: 0.52, color: "#10b981", radius: 7 },
+      { name: "Cantaclaro", x: 0.52, y: 0.53, color: "#38bdf8", radius: 4 },
+      { name: "Margen Izquierda", x: 0.48, y: 0.52, color: "#38bdf8", radius: 4 },
+      { name: "La Castellana", x: 0.51, y: 0.50, color: "#38bdf8", radius: 4 },
+      { name: "El Recreo", x: 0.50, y: 0.49, color: "#38bdf8", radius: 4 },
+      { name: "Bogotá", x: 0.51, y: 0.58, color: "#fbbf24", radius: 4.5 },
+      { name: "Medellín", x: 0.49, y: 0.55, color: "#fbbf24", radius: 4 },
+      { name: "Miami", x: 0.42, y: 0.39, color: "#fbbf24", radius: 5 },
+      { name: "Madrid", x: 0.75, y: 0.32, color: "#fbbf24", radius: 5 },
+      { name: "Santiago", x: 0.48, y: 0.84, color: "#fbbf24", radius: 4 }
+    ];
+
+    let pulseRadius = 0;
+
+    function resizeMapCanvas() {
+      const rect = mapCanvas.getBoundingClientRect();
+      mapCanvas.width = rect.width;
+      mapCanvas.height = rect.height;
+    }
+
+    function drawMap() {
+      const w = mapCanvas.width;
+      const h = mapCanvas.height;
+
+      mapCtx.clearRect(0, 0, w, h);
+
+      // Draw stylized background grid
+      mapCtx.strokeStyle = "rgba(16, 185, 129, 0.08)";
+      mapCtx.lineWidth = 1;
+      const gridSize = 35;
+      for (let x = 0; x < w; x += gridSize) {
+        mapCtx.beginPath();
+        mapCtx.moveTo(x, 0);
+        mapCtx.lineTo(x, h);
+        mapCtx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        mapCtx.beginPath();
+        mapCtx.moveTo(0, y);
+        mapCtx.lineTo(w, y);
+        mapCtx.stroke();
+      }
+
+      // Draw River Sinú glowing curve across Monteria hub
+      mapCtx.strokeStyle = "rgba(14, 165, 233, 0.45)";
+      mapCtx.lineWidth = 4;
+      mapCtx.beginPath();
+      mapCtx.moveTo(w * 0.47, h * 0.44);
+      mapCtx.bezierCurveTo(w * 0.50, h * 0.48, w * 0.49, h * 0.54, w * 0.52, h * 0.58);
+      mapCtx.stroke();
+
+      // Draw Connection Beams from Montería Hub to World Nodes
+      const hubX = w * 0.50;
+      const hubY = h * 0.52;
+
+      dynamicNodes.forEach(node => {
+        const nx = w * node.x;
+        const ny = h * node.y;
+
+        // Curved arc lines
+        mapCtx.strokeStyle = "rgba(56, 189, 248, 0.28)";
+        mapCtx.lineWidth = 1.2;
+        mapCtx.beginPath();
+        mapCtx.moveTo(hubX, hubY);
+        const midX = (hubX + nx) / 2;
+        const midY = (hubY + ny) / 2 - 25;
+        mapCtx.quadraticCurveTo(midX, midY, nx, ny);
+        mapCtx.stroke();
+
+        // Draw node
+        mapCtx.fillStyle = node.color;
+        mapCtx.beginPath();
+        mapCtx.arc(nx, ny, node.radius, 0, Math.PI * 2);
+        mapCtx.fill();
+
+        // Node glow
+        mapCtx.fillStyle = node.color.replace(")", ", 0.25)").replace("rgb", "rgba").replace("#", "");
+        mapCtx.beginPath();
+        mapCtx.arc(nx, ny, node.radius + 3, 0, Math.PI * 2);
+        mapCtx.fill();
+
+        // Node label
+        mapCtx.fillStyle = "#e2e8f0";
+        mapCtx.font = "10px sans-serif";
+        mapCtx.fillText(node.name, nx + 7, ny + 3);
+      });
+
+      // Montería Epicenter Pulsing Rings
+      pulseRadius = (pulseRadius + 0.4) % 45;
+      mapCtx.strokeStyle = `rgba(16, 185, 129, ${Math.max(0, 1 - pulseRadius / 45)})`;
+      mapCtx.lineWidth = 2;
+      mapCtx.beginPath();
+      mapCtx.arc(hubX, hubY, pulseRadius, 0, Math.PI * 2);
+      mapCtx.stroke();
+
+      mapCtx.beginPath();
+      mapCtx.arc(hubX, hubY, (pulseRadius + 20) % 45, 0, Math.PI * 2);
+      mapCtx.stroke();
+
+      // Hub Core
+      mapCtx.fillStyle = "#10b981";
+      mapCtx.beginPath();
+      mapCtx.arc(hubX, hubY, 7, 0, Math.PI * 2);
+      mapCtx.fill();
+      mapCtx.fillStyle = "#ffffff";
+      mapCtx.beginPath();
+      mapCtx.arc(hubX, hubY, 3, 0, Math.PI * 2);
+      mapCtx.fill();
+
+      // Core Label
+      mapCtx.fillStyle = "#38bdf8";
+      mapCtx.font = "bold 11px sans-serif";
+      mapCtx.fillText("MONTERÍA (Epicentro)", hubX - 58, hubY - 14);
+
+      animationFrameId = requestAnimationFrame(drawMap);
+    }
+
+    // Form Submission Handling
+    document.getElementById("pledgeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("signerName").value.trim();
+      const cat = document.getElementById("userCategory").value;
+      const sector = document.getElementById("userSector").value.trim();
+
+      const selectedPledges = Array.from(document.querySelectorAll(".chip-check input:checked")).map(i => i.value);
+
+      if (selectedPledges.length === 0) {
+        alert("Por favor selecciona al menos una acción de compromiso para continuar.");
+        return;
+      }
+
+      // Generate Initials Avatar
+      const initials = name.split(" ").map(n => n[0]).slice(0, 2).join("").toUpperCase() || "MO";
+
+      // Increment counters
+      totalSignatures++;
+      totalPledges += selectedPledges.length;
+      document.getElementById("counterSignatures").textContent = totalSignatures.toLocaleString();
+      document.getElementById("counterPledges").textContent = totalPledges.toLocaleString();
+
+      // Add to signatures array
+      let locText = sector;
+      if (cat === "monteria") {
+        locText = `Montería (${sector})`;
+      } else if (cat === "colombia") {
+        locText = `${sector} (Monteriano)`;
+      } else {
+        locText = `${sector} (En el Mundo)`;
+      }
+
+      signatures.unshift({
+        name: name,
+        loc: locText,
+        time: "Justo ahora",
+        avatar: initials,
+        commitments: selectedPledges.length
+      });
+
+      renderFeed();
+
+      // Add new glowing node to map
+      let newX = 0.50 + (Math.random() - 0.5) * 0.08;
+      let newY = 0.52 + (Math.random() - 0.5) * 0.08;
+      if (cat !== "monteria") {
+        newX = 0.25 + Math.random() * 0.55;
+        newY = 0.25 + Math.random() * 0.60;
+      }
+
+      dynamicNodes.push({
+        name: name.split(" ")[0] + " (" + sector.split(",")[0] + ")",
+        x: newX,
+        y: newY,
+        color: "#38bdf8",
+        radius: 6
+      });
+
+      // Prepare Certificate Modal
+      document.getElementById("certSignerName").textContent = name;
+      document.getElementById("certLocation").textContent = locText;
+      const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById("certDate").textContent = now.toLocaleDateString('es-CO', options);
+      document.getElementById("certFolio").textContent = "#MON-" + now.getFullYear() + "-" + totalSignatures;
+
+      // Extract canvas signature image
+      if (hasSigned) {
+        const sigImg = document.getElementById("certSigImg");
+        sigImg.src = sigCanvas.toDataURL("image/png");
+        sigImg.style.display = "inline-block";
+        document.getElementById("certSigFallback").style.display = "none";
+      } else {
+        document.getElementById("certSigImg").style.display = "none";
+        document.getElementById("certSigFallback").style.display = "inline-block";
+        document.getElementById("certSigFallback").textContent = name;
+      }
+
+      // Open Modal
+      document.getElementById("certModal").classList.add("active");
+
+      // Reset form
+      clearSignature();
+      document.getElementById("signerName").value = "";
+      document.getElementById("userSector").value = "";
+    });
+
+    function closeModal() {
+      document.getElementById("certModal").classList.remove("active");
+    }
+
+    function sharePledge() {
+      const name = document.getElementById("certSignerName").textContent;
+      const text = `¡Acabo de firmar el Pacto Ciudadano por una Montería Más Limpia! 🌱 Únete tú también desde cualquier lugar del mundo y cuidemos nuestra Perla del Sinú. #MonteriaLimpia #OrgulloSinuano`;
+      if (navigator.share) {
+        navigator.share({
+          title: "Pacto por una Montería Más Limpia",
+          text: text,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(text);
+        alert("¡Mensaje copiado al portapapeles! Puedes compartirlo en tus redes sociales.");
+      }
+    }
+
+    function downloadCertificate() {
+      const diploma = document.getElementById("certDiploma");
+      // Create high-res canvas download
+      const canvas = document.createElement("canvas");
+      canvas.width = 1200;
+      canvas.height = 700;
+      const ctx = canvas.getContext("2d");
+
+      // Background
+      const grad = ctx.createLinearGradient(0, 0, 1200, 700);
+      grad.addColorStop(0, "#082117");
+      grad.addColorStop(1, "#02120c");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1200, 700);
+
+      // Gold border
+      ctx.strokeStyle = "#fbbf24";
+      ctx.lineWidth = 8;
+      ctx.strokeRect(30, 30, 1140, 640);
+      ctx.strokeStyle = "#10b981";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(45, 45, 1110, 610);
+
+      // Header Text
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#fbbf24";
+      ctx.font = "bold 32px sans-serif";
+      ctx.fillText("CERTIFICADO DE COMPROMISO CIUDADANO", 600, 110);
+
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 20px sans-serif";
+      ctx.fillText("POR UNA MONTERÍA MÁS LIMPIA Y SOSTENIBLE", 600, 150);
+
+      ctx.fillStyle = "#a7f3d0";
+      ctx.font = "18px sans-serif";
+      ctx.fillText("Se otorga con orgullo y gratitud a:", 600, 220);
+
+      // Signer Name
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "italic bold 42px Georgia, serif";
+      ctx.fillText(document.getElementById("certSignerName").textContent, 600, 290);
+
+      // Description
+      ctx.fillStyle = "#e2e8f0";
+      ctx.font = "18px sans-serif";
+      ctx.fillText("Por asumir el pacto solemne de proteger el Río Sinú, mantener limpios los", 600, 360);
+      ctx.fillText("espacios públicos de Montería y ser embajador(a) de la cultura ciudadana en el mundo.", 600, 395);
+
+      // Line
+      ctx.strokeStyle = "rgba(251, 191, 36, 0.4)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(350, 440);
+      ctx.lineTo(850, 440);
+      ctx.stroke();
+
+      // Signature line & seal
+      ctx.fillStyle = "#fbbf24";
+      ctx.font = "bold 16px sans-serif";
+      ctx.fillText("GUARDIÁN(A) DE LA PERLA DEL SINÚ", 600, 475);
+
+      // Details footer
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "15px sans-serif";
+      const loc = document.getElementById("certLocation").textContent;
+      const date = document.getElementById("certDate").textContent;
+      const folio = document.getElementById("certFolio").textContent;
+      ctx.fillText(`Ubicación: ${loc}   |   Fecha: ${date}   |   Folio: ${folio}`, 600, 580);
+
+      // Convert to download
+      const link = document.createElement("a");
+      link.download = `Certificado_Monteria_Limpia_${document.getElementById("certSignerName").textContent.replace(/\s+/g, "_")}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+
+    // Init
+    window.addEventListener("resize", () => {
+      resizeSigCanvas();
+      resizeMapCanvas();
+    });
+
+    window.addEventListener("load", () => {
+      resizeSigCanvas();
+      resizeMapCanvas();
+      renderFeed();
+      drawMap();
+    });
+  </script>
+</body>
+</html>

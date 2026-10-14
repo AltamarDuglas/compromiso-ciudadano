@@ -1,0 +1,1107 @@
+/* =============================================================================
+   ESTILOS PRINCIPALES: "TODOS Somos Montería - ¡Vivamos Bonito!"
+   =============================================================================
+   Enfoque: Mobile-First con el Sistema de Diseño Oficial de Montería
+   Referencia Cromática: https://larondavive-front.vercel.app/
+   - Botón llamativo principal: "Hacer mi pacto con Montería"
+   - Estudio horizontal en pantalla completa para firma táctil fluida
+   - Animación de firma volando hacia la pantalla con perspectiva 3D
+   - Muro Monumental de Piedra grabado en bajo relieve con zoom-out progresivo
+   - Sin uso de emojis; aceleración por GPU y micro-interacciones suaves
+   ============================================================================= */
+
+@import './tokens.css';
+@import './animations.css';
+
+/* --- Reset General y Configuración de Pantalla --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+  background: var(--bg-main);
+  background-image: var(--bg-gradient);
+}
+
+body {
+  font-family: var(--font-body);
+  background: transparent;
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- Contenedor Principal Mobile-First --- */
+.mobile-app-wrapper {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--surface-white);
+  box-shadow: 0 16px 54px rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .mobile-app-wrapper {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    min-height: calc(100vh - 3rem);
+  }
+}
+
+/* --- Barra Superior con la Bandera Oficial de Montería --- */
+.civic-ribbon-top {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    var(--monteria-red) 0%, 
+    var(--monteria-red) 33.33%, 
+    #ffffff 33.33%, 
+    #ffffff 66.66%, 
+    var(--monteria-blue) 66.66%, 
+    var(--monteria-blue) 100%
+  );
+  position: sticky;
+  top: 0;
+  z-index: 101;
+}
+
+/* --- Encabezado Oficial Institucional --- */
+.mobile-header {
+  background: var(--surface-glass-strong);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: sticky;
+  top: 6px;
+  z-index: 100;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Marca Oficial Alcaldía de Montería (La Ronda Vive) --- */
+.alcaldia-official-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.alcaldia-escudo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1.5px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.alcaldia-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.alcaldia-text-line {
+  font-size: 0.84rem;
+  color: var(--text-main);
+  letter-spacing: -0.2px;
+  line-height: 1.15;
+}
+
+.alcaldia-text-line strong {
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.alcaldia-tricolor-bar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.alcaldia-bar-red {
+  width: 24px;
+  height: 3.5px;
+  background: var(--monteria-red);
+  border-radius: 2px;
+}
+
+.alcaldia-bar-star-icon {
+  color: var(--star-yellow);
+  width: 10px;
+  height: 10px;
+}
+
+.alcaldia-bar-blue {
+  width: 32px;
+  height: 3.5px;
+  background: var(--monteria-blue);
+  border-radius: 2px;
+}
+
+.brand-slogan-pill {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--monteria-blue-dark);
+  font-weight: 800;
+  margin-left: auto;
+  background: var(--monteria-blue-soft);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.2px;
+}
+
+.slogan-sparkle-icon {
+  color: var(--star-yellow);
+}
+
+/* --- Hero Section y Botón Llamativo Principal --- */
+.hero-section {
+  padding: 1.6rem 1.25rem 1rem;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-main) 100%);
+}
+
+.hero-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--monteria-blue-soft);
+  border: 1px solid var(--border-blue);
+  color: var(--monteria-blue-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.hero-main-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.hero-main-title .highlight-red {
+  color: var(--monteria-red);
+}
+
+.hero-main-title .highlight-gold {
+  color: var(--monteria-blue);
+}
+
+.hero-lead-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.35rem;
+}
+
+/* --- Botón Llamativo: "Hacer mi pacto con Montería" --- */
+.btn-hero-pact-callout {
+  width: 100%;
+  min-height: 58px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--monteria-blue) 0%, var(--monteria-blue-dark) 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+  animation: magneticPulse 2.8s infinite;
+  transition: all var(--transition-fast);
+}
+
+.btn-hero-pact-callout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.45);
+}
+
+.btn-hero-pact-callout:active {
+  transform: scale(0.98);
+}
+
+.btn-sparkle-accent {
+  color: var(--star-yellow);
+  animation: starFloat 2.5s infinite;
+}
+
+/* --- Barra de Métricas --- */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  margin: 0 1.25rem 1.4rem;
+}
+
+.stat-chip {
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 0.4rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.stat-chip:active {
+  transform: scale(0.97);
+}
+
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-val.gold {
+  color: var(--star-yellow);
+}
+
+.stat-val.red {
+  color: var(--monteria-red);
+}
+
+.stat-val.green {
+  color: var(--monteria-blue);
+}
+
+.stat-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-top: 0.25rem;
+}
+
+/* =============================================================================
+   MURO MONUMENTAL DE FIRMAS GRABADAS EN PIEDRA (ENGRAVED WALL)
+   ============================================================================= */
+.engraved-wall-section {
+  margin: 0 1.25rem 2.2rem;
+  background: var(--surface-white);
+  border-radius: 24px;
+  border: 1.5px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  padding: 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.wall-header-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.wall-badge-stone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--monteria-blue-dark);
+  background: var(--monteria-blue-soft);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.4rem;
+}
+
+.wall-engraved-heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 0.3rem;
+}
+
+.wall-engraved-subtext {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.wall-camera-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.wall-ctrl-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-light);
+  background: #ffffff;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.wall-ctrl-btn:hover {
+  background: var(--monteria-blue-soft);
+  border-color: var(--monteria-blue);
+  color: var(--monteria-blue-dark);
+}
+
+.wall-ctrl-btn:active {
+  transform: scale(0.94);
+}
+
+.wall-counter-chip {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--monteria-blue-dark);
+  background: var(--monteria-blue-soft);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-blue);
+}
+
+/* --- Visor Panorámico con Textura de Cantera Grabada --- */
+.engraved-wall-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  max-height: 520px;
+  overflow: auto;
+  border-radius: 20px;
+  border: 2px solid #cbd5e1;
+  background-color: #e2e8f0;
+  /* Textura de sillares de piedra monumental de Montería con juntas y grano de cantera */
+  background-image: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(226, 232, 240, 0.65) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 109px, rgba(148, 163, 184, 0.35) 110px),
+    repeating-linear-gradient(90deg, transparent, transparent 199px, rgba(148, 163, 184, 0.35) 200px),
+    radial-gradient(#94a3b8 0.75px, transparent 0.75px);
+  background-size: 100% 100%, 100% 110px, 200px 100%, 20px 20px;
+  box-shadow: inset 0 4px 20px rgba(15, 23, 42, 0.12);
+  scrollbar-width: thin;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 8px;
+}
+
+.wall-stone-texture-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 55%, rgba(15, 23, 42, 0.08) 100%);
+  border-radius: 18px;
+}
+
+.engraved-wall-surface {
+  position: relative;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+/* --- Cada Placa de Firma Grabada en Bajo Relieve (PNG Transparente Puro) --- */
+.engraved-signature-tile {
+  position: absolute;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+  cursor: pointer;
+}
+
+.engraved-signature-tile:hover {
+  transform: translateY(-3px) scale(1.12) !important;
+  filter: drop-shadow(0 0 14px rgba(37, 99, 235, 0.75)) drop-shadow(0 0 6px #f59e0b) !important;
+  z-index: 10;
+}
+
+/* Efecto de firma recién estampada en la pared */
+.engraved-signature-tile.is-freshly-stamped {
+  animation: freshlyCarvedGlow 2.5s ease-out forwards;
+  z-index: 20;
+}
+
+.stamp-impact-flare {
+  position: absolute;
+  inset: -12px;
+  border-radius: 16px;
+  pointer-events: none;
+  animation: carveShockwave 1.2s ease-out forwards;
+}
+
+/* Trazo grabado en bajo relieve (carved stone effect) sobre fondo transparente */
+.carved-signature-graphic {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.carved-sig-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+  /* Efecto de tallado profundo en piedra: oscurece el trazo a piedra oscura con bisel de luz */
+  filter: brightness(0.18) contrast(1.5)
+          drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.95)) 
+          drop-shadow(-1px -1px 1px rgba(15, 23, 42, 0.78));
+  opacity: 0.92;
+  transition: filter 0.25s ease;
+}
+
+.carved-sig-svg {
+  width: 100%;
+  height: 100%;
+  stroke: #0f172a;
+  /* Efecto de hendidura en roca caliza */
+  filter: drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.95)) 
+          drop-shadow(-1px -1px 1px rgba(15, 23, 42, 0.78));
+  opacity: 0.92;
+  transition: filter 0.25s ease;
+}
+
+.wall-footer-hint {
+  margin-top: 0.85rem;
+  font-size: 0.76rem;
+  color: var(--text-subtle);
+  text-align: center;
+}
+
+/* =============================================================================
+   ESTUDIO DE FIRMA HORIZONTAL EN PANTALLA COMPLETA (FULLSCREEN SIGNATURE STUDIO)
+   ============================================================================= */
+.fullscreen-studio-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.fullscreen-studio-container {
+  width: min(980px, 98vw);
+  max-height: 94vh;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.studio-topbar {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--monteria-blue);
+}
+
+.studio-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.studio-badge-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--monteria-blue-light);
+  box-shadow: 0 0 10px var(--monteria-blue);
+}
+
+.studio-sep {
+  opacity: 0.4;
+}
+
+.studio-city {
+  color: var(--star-yellow);
+}
+
+.studio-close-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.studio-close-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Layout Horizontal del Estudio */
+.studio-horizontal-layout {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  gap: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.studio-sector-quickbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: #ffffff;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.studio-sector-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.studio-chips-scroll {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.2rem 0;
+  scrollbar-width: none;
+}
+
+.studio-chips-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.studio-chip {
+  white-space: nowrap;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  background: #f1f5f9;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.studio-chip.is-active {
+  background: var(--monteria-blue);
+  color: #ffffff;
+  border-color: var(--monteria-blue);
+}
+
+/* Gran Lienzo Horizontal para Firma */
+.studio-canvas-fullscreen-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.studio-canvas-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.studio-canvas-hint-text {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.studio-clear-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--monteria-red-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.studio-clear-btn:hover {
+  background: var(--monteria-red-soft);
+}
+
+.studio-canvas-drawing-area {
+  flex: 1;
+  min-height: 260px;
+  border: 2px dashed rgba(37, 99, 235, 0.4);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #091122 0%, #060b17 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.studio-drawing-canvas-fluid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+  z-index: 2;
+}
+
+.studio-canvas-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  z-index: 1;
+}
+
+.studio-canvas-watermark span {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: block;
+}
+
+.studio-canvas-watermark small {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.studio-error-banner {
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid var(--border-red);
+  color: var(--monteria-red-dark);
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.studio-bottom-actions-strip {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+  margin-top: auto;
+}
+
+.studio-cancel-btn {
+  height: 50px;
+  padding: 0 1.4rem;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-light);
+  background: var(--surface-white);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.studio-btn-sign-prominent {
+  flex: 1;
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  background: var(--monteria-blue);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+  transition: all var(--transition-fast);
+}
+
+.studio-btn-sign-prominent:hover {
+  background: var(--monteria-blue-dark);
+  transform: translateY(-1px);
+}
+
+/* =============================================================================
+   ANIMACIÓN DE FIRMA VOLANDO HACIA LA PANTALLA (FLYING STAMP PORTAL)
+   ============================================================================= */
+.studio-flying-stamp-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.studio-stamp-shockwave {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  animation: carveShockwave 1s ease-out forwards;
+}
+
+.studio-flying-signature-transparent {
+  position: relative;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flying-pure-signature-img {
+  max-height: 180px;
+  max-width: 90vw;
+  object-fit: contain;
+  background: transparent;
+  /* Resplandor tridimensional de la firma volando hacia la pantalla */
+  filter: drop-shadow(0 0 25px rgba(37, 99, 235, 0.95)) drop-shadow(0 0 45px rgba(245, 158, 11, 0.85));
+}
+
+/* =============================================================================
+   MODAL DE CONSAGRACIÓN Y CREDENCIAL HOLOGRÁFICA
+   ============================================================================= */
+.modal-overlay-blur {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.modal-dialog-content {
+  background: var(--surface-white);
+  border-radius: 24px;
+  max-width: 460px;
+  width: 100%;
+  padding: 1.6rem 1.4rem;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close-touch {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f5f9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.modal-award-icon-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--monteria-blue-soft);
+  border: 1px solid var(--border-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+/* Tarjeta Holográfica 3D */
+.holographic-card-3d {
+  width: 100%;
+  background: linear-gradient(135deg, #091122 0%, #15275e 50%, #091122 100%);
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-holo-card);
+  margin: 1rem 0;
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+.holographic-sheen-layer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.18) 30%,
+    rgba(251, 191, 36, 0.28) 35%,
+    rgba(37, 99, 235, 0.3) 40%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+}
+
+.card-campaign-logo {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.card-campaign-logo span {
+  color: var(--monteria-red-light);
+}
+
+.card-gold-seal-box {
+  color: var(--star-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-honor-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--star-yellow);
+}
+
+.card-citizen-name {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0.2rem 0 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.card-motto {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--star-yellow);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.card-sig-preview {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.card-sig-preview img {
+  max-height: 44px;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.8));
+}
+
+.card-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  padding-top: 0.5rem;
+}
+
+.card-meta-grid strong {
+  color: #ffffff;
+}
+
+.cert-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.btn-whatsapp-share {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  border: none;
+  background: #25d366;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.btn-download-png {
+  width: 100%;
+  height: 48px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-light);
+  background: var(--surface-white);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-download-png:hover {
+  border-color: var(--monteria-blue);
+  color: var(--monteria-blue);
+}
+
+/* --- Pie de Página Institucional --- */
+.civic-footer {
+  margin-top: auto;
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 2rem 1.25rem 2.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 4px solid var(--monteria-blue);
+}
+
+.footer-sinu-wave {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    var(--monteria-red) 0%, 
+    var(--monteria-red) 33.33%, 
+    #ffffff 33.33%, 
+    #ffffff 66.66%, 
+    var(--monteria-blue) 66.66%, 
+    var(--monteria-blue) 100%
+  );
+  margin-bottom: 1.25rem;
+  border-radius: var(--radius-full);
+}
+
+.footer-highlight {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
